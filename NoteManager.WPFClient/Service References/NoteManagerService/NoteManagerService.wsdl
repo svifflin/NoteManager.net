@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy"
+                  xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/"
+                  xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract"
+                  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+                  xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex"
+                  xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+                  xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+                  xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+                  xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="NoteManagerService"
+                  targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://tempuri.org/Imports">
+            <xsd:import schemaLocation="http://localhost:54963/NoteManagerService.svc?xsd=xsd0"
+                        namespace="http://tempuri.org/"/>
+            <xsd:import schemaLocation="http://localhost:54963/NoteManagerService.svc?xsd=xsd2"
+                        namespace="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel"/>
+            <xsd:import schemaLocation="http://localhost:54963/NoteManagerService.svc?xsd=xsd1"
+                        namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="NoteManagerService_NotesListByUserID_InputMessage">
+        <wsdl:part name="parameters" element="tns:NotesListByUserID"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_NotesListByUserID_OutputMessage">
+        <wsdl:part name="parameters" element="tns:NotesListByUserIDResponse"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_NotesListByUserID_SystemFaultFault_FaultMessage">
+        <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q1:SystemFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_NotesListByUserID_DatabaseFaultFault_FaultMessage">
+        <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q2:DatabaseFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_NotesListByFilter_InputMessage">
+        <wsdl:part name="parameters" element="tns:NotesListByFilter"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_NotesListByFilter_OutputMessage">
+        <wsdl:part name="parameters" element="tns:NotesListByFilterResponse"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_NotesListByFilter_DatabaseFaultFault_FaultMessage">
+        <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q3:DatabaseFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_NotesListByFilter_SystemFaultFault_FaultMessage">
+        <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q4:SystemFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_GetNote_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetNote"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_GetNote_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetNoteResponse"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_GetNote_SystemFaultFault_FaultMessage">
+        <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q5:SystemFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_GetNote_DatabaseFaultFault_FaultMessage">
+        <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q6:DatabaseFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_AddNote_InputMessage">
+        <wsdl:part name="parameters" element="tns:AddNote"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_AddNote_OutputMessage">
+        <wsdl:part name="parameters" element="tns:AddNoteResponse"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_AddNote_DatabaseFaultFault_FaultMessage">
+        <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q7:DatabaseFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_AddNote_SystemFaultFault_FaultMessage">
+        <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q8:SystemFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_RemoveNote_InputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveNote"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_RemoveNote_OutputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveNoteResponse"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_RemoveNote_SystemFaultFault_FaultMessage">
+        <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q9:SystemFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_RemoveNote_DatabaseFaultFault_FaultMessage">
+        <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q10:DatabaseFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_UpdateNote_InputMessage">
+        <wsdl:part name="parameters" element="tns:UpdateNote"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_UpdateNote_OutputMessage">
+        <wsdl:part name="parameters" element="tns:UpdateNoteResponse"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_UpdateNote_SystemFaultFault_FaultMessage">
+        <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q11:SystemFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_UpdateNote_DatabaseFaultFault_FaultMessage">
+        <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q12:DatabaseFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_GetUser_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetUser"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_GetUser_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_GetUser_SystemFaultFault_FaultMessage">
+        <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q13:SystemFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_GetUser_DatabaseFaultFault_FaultMessage">
+        <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q14:DatabaseFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_GetUserByEmail_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetUserByEmail"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_GetUserByEmail_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetUserByEmailResponse"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_GetUserByEmail_SystemFaultFault_FaultMessage">
+        <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q15:SystemFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_GetUserByEmail_DatabaseFaultFault_FaultMessage">
+        <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q16:DatabaseFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_AddUser_InputMessage">
+        <wsdl:part name="parameters" element="tns:AddUser"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_AddUser_OutputMessage">
+        <wsdl:part name="parameters" element="tns:AddUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_AddUser_SystemFaultFault_FaultMessage">
+        <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q17:SystemFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_AddUser_DatabaseFaultFault_FaultMessage">
+        <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q18:DatabaseFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_RemoveUser_InputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveUser"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_RemoveUser_OutputMessage">
+        <wsdl:part name="parameters" element="tns:RemoveUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_RemoveUser_DatabaseFaultFault_FaultMessage">
+        <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q19:DatabaseFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_RemoveUser_SystemFaultFault_FaultMessage">
+        <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q20:SystemFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_UpdateUser_InputMessage">
+        <wsdl:part name="parameters" element="tns:UpdateUser"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_UpdateUser_OutputMessage">
+        <wsdl:part name="parameters" element="tns:UpdateUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_UpdateUser_DatabaseFaultFault_FaultMessage">
+        <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q21:DatabaseFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_UpdateUser_SystemFaultFault_FaultMessage">
+        <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q22:SystemFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_Test_InputMessage">
+        <wsdl:part name="parameters" element="tns:Test"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_Test_OutputMessage">
+        <wsdl:part name="parameters" element="tns:TestResponse"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_Test_DatabaseFaultFault_FaultMessage">
+        <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q23:DatabaseFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_Test_SystemFaultFault_FaultMessage">
+        <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q24:SystemFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_Login_InputMessage">
+        <wsdl:part name="parameters" element="tns:Login"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_Login_OutputMessage">
+        <wsdl:part name="parameters" element="tns:LoginResponse"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_Login_DatabaseFaultFault_FaultMessage">
+        <wsdl:part xmlns:q25="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q25:DatabaseFault"/>
+    </wsdl:message>
+    <wsdl:message name="NoteManagerService_Login_SystemFaultFault_FaultMessage">
+        <wsdl:part xmlns:q26="http://schemas.datacontract.org/2004/07/NoteManagerObjectModel" name="detail"
+                   element="q26:SystemFault"/>
+    </wsdl:message>
+    <wsdl:portType name="NoteManagerService">
+        <wsdl:operation name="NotesListByUserID">
+            <wsdl:input wsaw:Action="http://tempuri.org/NoteManagerService/NotesListByUserID"
+                        message="tns:NoteManagerService_NotesListByUserID_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/NoteManagerService/NotesListByUserIDResponse"
+                         message="tns:NoteManagerService_NotesListByUserID_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/NotesListByUserIDSystemFaultFault"
+                        name="SystemFaultFault"
+                        message="tns:NoteManagerService_NotesListByUserID_SystemFaultFault_FaultMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/NotesListByUserIDDatabaseFaultFault"
+                        name="DatabaseFaultFault"
+                        message="tns:NoteManagerService_NotesListByUserID_DatabaseFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="NotesListByFilter">
+            <wsdl:input wsaw:Action="http://tempuri.org/NoteManagerService/NotesListByFilter"
+                        message="tns:NoteManagerService_NotesListByFilter_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/NoteManagerService/NotesListByFilterResponse"
+                         message="tns:NoteManagerService_NotesListByFilter_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/NotesListByFilterDatabaseFaultFault"
+                        name="DatabaseFaultFault"
+                        message="tns:NoteManagerService_NotesListByFilter_DatabaseFaultFault_FaultMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/NotesListByFilterSystemFaultFault"
+                        name="SystemFaultFault"
+                        message="tns:NoteManagerService_NotesListByFilter_SystemFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetNote">
+            <wsdl:input wsaw:Action="http://tempuri.org/NoteManagerService/GetNote"
+                        message="tns:NoteManagerService_GetNote_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/NoteManagerService/GetNoteResponse"
+                         message="tns:NoteManagerService_GetNote_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/GetNoteSystemFaultFault"
+                        name="SystemFaultFault" message="tns:NoteManagerService_GetNote_SystemFaultFault_FaultMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/GetNoteDatabaseFaultFault"
+                        name="DatabaseFaultFault"
+                        message="tns:NoteManagerService_GetNote_DatabaseFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="AddNote">
+            <wsdl:input wsaw:Action="http://tempuri.org/NoteManagerService/AddNote"
+                        message="tns:NoteManagerService_AddNote_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/NoteManagerService/AddNoteResponse"
+                         message="tns:NoteManagerService_AddNote_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/AddNoteDatabaseFaultFault"
+                        name="DatabaseFaultFault"
+                        message="tns:NoteManagerService_AddNote_DatabaseFaultFault_FaultMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/AddNoteSystemFaultFault"
+                        name="SystemFaultFault" message="tns:NoteManagerService_AddNote_SystemFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveNote">
+            <wsdl:input wsaw:Action="http://tempuri.org/NoteManagerService/RemoveNote"
+                        message="tns:NoteManagerService_RemoveNote_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/NoteManagerService/RemoveNoteResponse"
+                         message="tns:NoteManagerService_RemoveNote_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/RemoveNoteSystemFaultFault"
+                        name="SystemFaultFault"
+                        message="tns:NoteManagerService_RemoveNote_SystemFaultFault_FaultMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/RemoveNoteDatabaseFaultFault"
+                        name="DatabaseFaultFault"
+                        message="tns:NoteManagerService_RemoveNote_DatabaseFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="UpdateNote">
+            <wsdl:input wsaw:Action="http://tempuri.org/NoteManagerService/UpdateNote"
+                        message="tns:NoteManagerService_UpdateNote_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/NoteManagerService/UpdateNoteResponse"
+                         message="tns:NoteManagerService_UpdateNote_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/UpdateNoteSystemFaultFault"
+                        name="SystemFaultFault"
+                        message="tns:NoteManagerService_UpdateNote_SystemFaultFault_FaultMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/UpdateNoteDatabaseFaultFault"
+                        name="DatabaseFaultFault"
+                        message="tns:NoteManagerService_UpdateNote_DatabaseFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetUser">
+            <wsdl:input wsaw:Action="http://tempuri.org/NoteManagerService/GetUser"
+                        message="tns:NoteManagerService_GetUser_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/NoteManagerService/GetUserResponse"
+                         message="tns:NoteManagerService_GetUser_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/GetUserSystemFaultFault"
+                        name="SystemFaultFault" message="tns:NoteManagerService_GetUser_SystemFaultFault_FaultMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/GetUserDatabaseFaultFault"
+                        name="DatabaseFaultFault"
+                        message="tns:NoteManagerService_GetUser_DatabaseFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetUserByEmail">
+            <wsdl:input wsaw:Action="http://tempuri.org/NoteManagerService/GetUserByEmail"
+                        message="tns:NoteManagerService_GetUserByEmail_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/NoteManagerService/GetUserByEmailResponse"
+                         message="tns:NoteManagerService_GetUserByEmail_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/GetUserByEmailSystemFaultFault"
+                        name="SystemFaultFault"
+                        message="tns:NoteManagerService_GetUserByEmail_SystemFaultFault_FaultMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/GetUserByEmailDatabaseFaultFault"
+                        name="DatabaseFaultFault"
+                        message="tns:NoteManagerService_GetUserByEmail_DatabaseFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="AddUser">
+            <wsdl:input wsaw:Action="http://tempuri.org/NoteManagerService/AddUser"
+                        message="tns:NoteManagerService_AddUser_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/NoteManagerService/AddUserResponse"
+                         message="tns:NoteManagerService_AddUser_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/AddUserSystemFaultFault"
+                        name="SystemFaultFault" message="tns:NoteManagerService_AddUser_SystemFaultFault_FaultMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/AddUserDatabaseFaultFault"
+                        name="DatabaseFaultFault"
+                        message="tns:NoteManagerService_AddUser_DatabaseFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveUser">
+            <wsdl:input wsaw:Action="http://tempuri.org/NoteManagerService/RemoveUser"
+                        message="tns:NoteManagerService_RemoveUser_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/NoteManagerService/RemoveUserResponse"
+                         message="tns:NoteManagerService_RemoveUser_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/RemoveUserDatabaseFaultFault"
+                        name="DatabaseFaultFault"
+                        message="tns:NoteManagerService_RemoveUser_DatabaseFaultFault_FaultMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/RemoveUserSystemFaultFault"
+                        name="SystemFaultFault"
+                        message="tns:NoteManagerService_RemoveUser_SystemFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="UpdateUser">
+            <wsdl:input wsaw:Action="http://tempuri.org/NoteManagerService/UpdateUser"
+                        message="tns:NoteManagerService_UpdateUser_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/NoteManagerService/UpdateUserResponse"
+                         message="tns:NoteManagerService_UpdateUser_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/UpdateUserDatabaseFaultFault"
+                        name="DatabaseFaultFault"
+                        message="tns:NoteManagerService_UpdateUser_DatabaseFaultFault_FaultMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/UpdateUserSystemFaultFault"
+                        name="SystemFaultFault"
+                        message="tns:NoteManagerService_UpdateUser_SystemFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="Test">
+            <wsdl:input wsaw:Action="http://tempuri.org/NoteManagerService/Test"
+                        message="tns:NoteManagerService_Test_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/NoteManagerService/TestResponse"
+                         message="tns:NoteManagerService_Test_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/TestDatabaseFaultFault"
+                        name="DatabaseFaultFault"
+                        message="tns:NoteManagerService_Test_DatabaseFaultFault_FaultMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/TestSystemFaultFault" name="SystemFaultFault"
+                        message="tns:NoteManagerService_Test_SystemFaultFault_FaultMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="Login">
+            <wsdl:input wsaw:Action="http://tempuri.org/NoteManagerService/Login"
+                        message="tns:NoteManagerService_Login_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/NoteManagerService/LoginResponse"
+                         message="tns:NoteManagerService_Login_OutputMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/LoginDatabaseFaultFault"
+                        name="DatabaseFaultFault"
+                        message="tns:NoteManagerService_Login_DatabaseFaultFault_FaultMessage"/>
+            <wsdl:fault wsaw:Action="http://tempuri.org/NoteManagerService/LoginSystemFaultFault"
+                        name="SystemFaultFault" message="tns:NoteManagerService_Login_SystemFaultFault_FaultMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="BasicHttpBinding_NoteManagerService" type="tns:NoteManagerService">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="NotesListByUserID">
+            <soap:operation soapAction="http://tempuri.org/NoteManagerService/NotesListByUserID" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="SystemFaultFault">
+                <soap:fault use="literal" name="SystemFaultFault" namespace=""/>
+            </wsdl:fault>
+            <wsdl:fault name="DatabaseFaultFault">
+                <soap:fault use="literal" name="DatabaseFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="NotesListByFilter">
+            <soap:operation soapAction="http://tempuri.org/NoteManagerService/NotesListByFilter" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DatabaseFaultFault">
+                <soap:fault use="literal" name="DatabaseFaultFault" namespace=""/>
+            </wsdl:fault>
+            <wsdl:fault name="SystemFaultFault">
+                <soap:fault use="literal" name="SystemFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="GetNote">
+            <soap:operation soapAction="http://tempuri.org/NoteManagerService/GetNote" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="SystemFaultFault">
+                <soap:fault use="literal" name="SystemFaultFault" namespace=""/>
+            </wsdl:fault>
+            <wsdl:fault name="DatabaseFaultFault">
+                <soap:fault use="literal" name="DatabaseFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="AddNote">
+            <soap:operation soapAction="http://tempuri.org/NoteManagerService/AddNote" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DatabaseFaultFault">
+                <soap:fault use="literal" name="DatabaseFaultFault" namespace=""/>
+            </wsdl:fault>
+            <wsdl:fault name="SystemFaultFault">
+                <soap:fault use="literal" name="SystemFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveNote">
+            <soap:operation soapAction="http://tempuri.org/NoteManagerService/RemoveNote" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="SystemFaultFault">
+                <soap:fault use="literal" name="SystemFaultFault" namespace=""/>
+            </wsdl:fault>
+            <wsdl:fault name="DatabaseFaultFault">
+                <soap:fault use="literal" name="DatabaseFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="UpdateNote">
+            <soap:operation soapAction="http://tempuri.org/NoteManagerService/UpdateNote" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="SystemFaultFault">
+                <soap:fault use="literal" name="SystemFaultFault" namespace=""/>
+            </wsdl:fault>
+            <wsdl:fault name="DatabaseFaultFault">
+                <soap:fault use="literal" name="DatabaseFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="GetUser">
+            <soap:operation soapAction="http://tempuri.org/NoteManagerService/GetUser" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="SystemFaultFault">
+                <soap:fault use="literal" name="SystemFaultFault" namespace=""/>
+            </wsdl:fault>
+            <wsdl:fault name="DatabaseFaultFault">
+                <soap:fault use="literal" name="DatabaseFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="GetUserByEmail">
+            <soap:operation soapAction="http://tempuri.org/NoteManagerService/GetUserByEmail" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="SystemFaultFault">
+                <soap:fault use="literal" name="SystemFaultFault" namespace=""/>
+            </wsdl:fault>
+            <wsdl:fault name="DatabaseFaultFault">
+                <soap:fault use="literal" name="DatabaseFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="AddUser">
+            <soap:operation soapAction="http://tempuri.org/NoteManagerService/AddUser" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="SystemFaultFault">
+                <soap:fault use="literal" name="SystemFaultFault" namespace=""/>
+            </wsdl:fault>
+            <wsdl:fault name="DatabaseFaultFault">
+                <soap:fault use="literal" name="DatabaseFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="RemoveUser">
+            <soap:operation soapAction="http://tempuri.org/NoteManagerService/RemoveUser" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DatabaseFaultFault">
+                <soap:fault use="literal" name="DatabaseFaultFault" namespace=""/>
+            </wsdl:fault>
+            <wsdl:fault name="SystemFaultFault">
+                <soap:fault use="literal" name="SystemFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="UpdateUser">
+            <soap:operation soapAction="http://tempuri.org/NoteManagerService/UpdateUser" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DatabaseFaultFault">
+                <soap:fault use="literal" name="DatabaseFaultFault" namespace=""/>
+            </wsdl:fault>
+            <wsdl:fault name="SystemFaultFault">
+                <soap:fault use="literal" name="SystemFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="Test">
+            <soap:operation soapAction="http://tempuri.org/NoteManagerService/Test" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DatabaseFaultFault">
+                <soap:fault use="literal" name="DatabaseFaultFault" namespace=""/>
+            </wsdl:fault>
+            <wsdl:fault name="SystemFaultFault">
+                <soap:fault use="literal" name="SystemFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="Login">
+            <soap:operation soapAction="http://tempuri.org/NoteManagerService/Login" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="DatabaseFaultFault">
+                <soap:fault use="literal" name="DatabaseFaultFault" namespace=""/>
+            </wsdl:fault>
+            <wsdl:fault name="SystemFaultFault">
+                <soap:fault use="literal" name="SystemFaultFault" namespace=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="NoteManagerService">
+        <wsdl:port name="BasicHttpBinding_NoteManagerService" binding="tns:BasicHttpBinding_NoteManagerService">
+            <soap:address location="http://localhost:54963/NoteManagerService.svc"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

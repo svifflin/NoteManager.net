@@ -1,0 +1,68 @@
+﻿<local:BaseDialogWindow x:Class="NoteManagerUI.View.AddEditUserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:NoteManagerUI.View"
+        Title="{Binding Path=Title}" Height="417" Width="383">
+
+    <Window.Resources>
+        <local:NullableBooleanConverter x:Key="booleanConverter" />
+        <local:EmptyStringConverter x:Key="emptyStringConverter" />
+    </Window.Resources>
+
+    <Grid Margin="20,10,50,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Email :"/>
+        <TextBox Grid.Row="0" Grid.Column="1"
+                 Margin="2,2,0,2"
+                 AllowDrop="True"
+                 MaxLength="30"
+                 Text="{Binding Path=CurrentUser.Email, Mode=TwoWay, Converter={StaticResource ResourceKey=emptyStringConverter}}"/>
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Mot de passe :"/>
+        <TextBox Grid.Row="1" Grid.Column="1"
+                 Margin="2,2,0,2"
+                 AllowDrop="True"
+                 MaxLength="30"
+                 Text="{Binding Path=CurrentUser.Password, Mode=TwoWay, Converter={StaticResource ResourceKey=emptyStringConverter}}"/>
+
+        <Label Grid.Row="2" Grid.Column="0" Content="Nom :"/>
+        <TextBox Grid.Row="2" Grid.Column="1"
+                 Margin="2,2,0,2"
+                 AllowDrop="True"
+                 MaxLength="30"
+                 SpellCheck.IsEnabled="True" Language="fr-FR"
+                 Text="{Binding Path=CurrentUser.LastName, Mode=TwoWay, Converter={StaticResource ResourceKey=emptyStringConverter}}"/>
+
+        <Label Grid.Row="3" Grid.Column="0" Content="Prénom :"/>
+        <TextBox Grid.Row="3" Grid.Column="1"
+                 Margin="2,2,0,2"
+                 AllowDrop="True"
+                 MaxLength="30"
+                 SpellCheck.IsEnabled="True" Language="fr-FR"
+                 Text="{Binding Path=CurrentUser.FirstName, Mode=TwoWay, Converter={StaticResource ResourceKey=emptyStringConverter}}"/>
+
+        <Button Grid.Row="13" Grid.Column="1" 
+                HorizontalAlignment="Left"
+                Margin="0,7,0,0"
+                Width="80"
+                Content="Enregistrer" 
+                Command="{Binding Path=SaveCommand}"/>
+        <Button Grid.Row="13" Grid.Column="1" 
+                HorizontalAlignment="Left"
+                Margin="95,7,0,0"
+                Width="80"
+                Content="Annuler" 
+                Command="{Binding Path=CancelCommand}"/>
+    </Grid>
+</local:BaseDialogWindow>
